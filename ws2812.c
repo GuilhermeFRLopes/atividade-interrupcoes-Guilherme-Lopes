@@ -18,24 +18,23 @@ const uint button_A = 5; // Botão A = 5
 const uint button_B = 6; // Botão B = 6
 // Variável global para armazenar a cor (Entre 0 e 255 para intensidade)
 uint8_t led_r = 0; // Intensidade do vermelho
-uint8_t led_g = 50; // Intensidade do verde
+uint8_t led_g = 10; // Intensidade do verde
 uint8_t led_b = 0; // Intensidade do azul
 
 // Buffer para armazenar quais LEDs estão ligados matriz 5x5
 bool led_buffer[NUM_PIXELS] = {
-    1, 0, 0, 0, 1, 
     0, 0, 0, 0, 0, 
-    0, 0, 1, 0, 0, 
     0, 0, 0, 0, 0, 
-    1, 0, 0, 0, 1
+    0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0
 };
 
 bool* numeros[10] = {numeroZero, numeroUm, numeroDois, numeroTres, numeroQuatro, numeroCinco, numeroSeis, numeroSete, numeroOito, numeroNove};
 
 void ligarMatrizLeds();
 void blinkarLedVermelho();
-bool debouncing();
-//uma única rotina de interrupção para simplificar a lógica do software
+
 static void gpio_irq_handler(uint gpio, uint32_t events);
 
 static inline void put_pixel(uint32_t pixel_grb)
@@ -109,14 +108,11 @@ int main()
 }
 
 void ligarMatrizLeds(){
-    //implementar a logica de exibição do numero na matriz, utilize o contador "contador"
     set_one_led(led_r, led_g, led_b, contador);
 }
 
-void blinkarLedVermelho(){
-    static bool led_state = false; // Estado do LED (ligado/desligado)
-    static absolute_time_t last_time = {0}; // Última vez que o LED mudou de estado
-   
+void blinkarLedVermelho(){     
+    static absolute_time_t last_time = {0}; // Última vez que o LED mudou de estado   
     absolute_time_t current_time = get_absolute_time();
 
     // 100 ms (0.1 segundos) desde a última vez que o LED mudou de estado
@@ -147,7 +143,7 @@ void gpio_irq_handler(uint gpio, uint32_t events)
         contador--;
     printf("Contador: %d\n", contador);
 
-    if(gpio == button_A && contador < 9) // se maior q zero
+    if(gpio == button_A && contador < 9) // se menor que 9
         contador++;
     printf("Contador: %d\n", contador);
 }
