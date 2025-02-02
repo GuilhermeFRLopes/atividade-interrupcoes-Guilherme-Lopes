@@ -52,10 +52,10 @@ Este projeto foi desenvolvido para consolidar os conceitos de interrupções em 
 ##  Como Executar o Projeto
 
 ###  Configuração Inicial
-1. Clone o repositório:
+1. baixando o repositório:
    basta clicar em "code", depois clicar pra baixar o zip do repositorio
    ![alt text](image.png)
-2. extraia o ar1quivo baixado, e em seguida abra o vs-code
+2. extraia o arquivo baixado, e em seguida abra o vs-code
 3. Em seguida clique na extensão do pi-pico, e clique em "import Project"
    ![alt text](image-1.png)
 4. Depois clique em "change" e selecione a pasta extraida do repositorio, e clique em import pra importar o projeto e fazer a extensao reconhecer como um projeto pi-pico
@@ -63,7 +63,7 @@ Este projeto foi desenvolvido para consolidar os conceitos de interrupções em 
    depois disso uma nova aba do vs-code sera aberta, fique nessa aba;
 5. Conecte a **BitDogLab** via USB e ative o modo bootseel, clique na extensao pi-pico novamente e clique em "run Poject(USB), pronto o codigo sera enviado para placa.
 video tutorial: (https://youtu.be/0HX_SLXgLSY)
-6. ou metodo é clonando o repositorio.
+6. outro metodo é clonando o repositorio.
 
 ###  Testando no Simulador
 Se quiser testar no **Wokwi**, abra o arquivo `diagram.json` e inicie a simulação.
